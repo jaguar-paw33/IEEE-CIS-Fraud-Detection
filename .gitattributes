@@ -1,2 +1,2 @@
-Classifiers/ filter=lfs diff=lfs merge=lfs -text
-Mappings/ filter=lfs diff=lfs merge=lfs -text
+2.Deployment/Classifiers/ filter=lfs diff=lfs merge=lfs -text
+2.Deployment/Mappings/ filter=lfs diff=lfs merge=lfs -text

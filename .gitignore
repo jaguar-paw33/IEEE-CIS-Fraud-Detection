@@ -1,0 +1,17 @@
+1.Solution/Baseline Submissions/
+1.Solution/PDFs/
+1.Solution/train_transaction.csv
+1.Solution/train_identity.csv
+1.Solution/test_transaction.csv
+1.Solution/test_identity.csv
+1.Solution/merged_train.pkl
+1.Solution/merged_test.pkl
+1.Solution/tuned_submission.csv
+1.Solution/basic_clean_train.pkl
+1.Solution/basic_clean_test.pkl
+1.Solution/basic_fe_train.pkl
+1.Solution/basic_fe_test.pkl
+1.Solution/advanced_fe_train.pkl
+1.Solution/advanced_fe_test.pkl
+1.Solution/features_having_covariate_shift.pkl
+1.Solution/final_submission.csv

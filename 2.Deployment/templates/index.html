@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://static.thenounproject.com/png/2086566-200.png"
+      type="image/gif"
+    />
+    <title>Fraud Detection</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <main>
+      <div id="sidebar">
+        <div id="input-format">
+          <h1 style="text-align: center; font-size: 30px">Input Data Format</h1>
+
+          <ul style="font-size: 18px; margin-bottom: -3px">
+            <li>Input File must be in the csv format and with the header.</li>
+            <br />
+            <li>
+              Transaction and Identity Files without merging can be uploaded.
+            </li>
+            <br />
+            <li>Merged Transaction and Identity Files can be uploaded.</li>
+            <br />
+          </ul>
+          <div>
+            <div style="border-top: 2px solid gray; margin-bottom: 3px"></div>
+            <div
+              style="border-top: 2px solid gray; width: 80%; margin: auto"
+            ></div>
+            <div
+              style="
+                border-top: 2px solid gray;
+                margin-top: 3px;
+                margin-bottom: 3px;
+              "
+            ></div>
+            <br />
+          </div>
+          <div id="non-merged">
+            <span id="click-non-merged" onclick="makeNonMergedVisible();"
+              >Click to Upload the Non-Merged Files</span
+            >
+            <form
+              action="/"
+              method="POST"
+              enctype="multipart/form-data"
+              id="form-non-merged"
+            >
+              <label for="transaction-file" style="margin-bottom: -12px"
+                >Upload the Transaction File</label
+              >
+              <input
+                type="file"
+                name="transaction-file"
+                required
+                style="margin-bottom: -6px"
+              />
+              <label for="identity-file" style="margin-bottom: -12px"
+                >Upload the Identity File</label
+              >
+              <input type="file" name="identity-file" required />
+              <button type="submit">Make Prediction</button>
+            </form>
+          </div>
+
+          <div id="merged">
+            <span id="click-merged" onclick="makeMergedVisible();"
+              >Click to Upload the Merged File</span
+            >
+            <form
+              action="/"
+              method="POST"
+              enctype="multipart/form-data"
+              id="form-merged"
+            >
+              <label for="merged-file" style="margin-bottom: -12px"
+                >Upload the Merged File</label
+              >
+              <input type="file" name="merged-file" required />
+              <button type="submit">Make Prediction</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="about">
+          <div style="border-top: 2px solid gray; margin-bottom: 3px"></div>
+          <div
+            style="border-top: 2px solid gray; width: 80%; margin: auto"
+          ></div>
+          <div style="border-top: 2px solid gray; margin-top: 3px"></div>
+          <br />
+          <div style="border: 1px solid gray; padding: 6px">
+            <div style="margin-top: 6px; text-align: center">
+              <a
+                href="https://www.kaggle.com/c/ieee-fraud-detection/overview"
+                target="blank"
+                style="text-decoration: none; color: white"
+              >
+                Know More about the
+                <span style="color: #00e3e3">Challenge</span></a
+              >
+              <br />
+              <a
+                href="/"
+                target="blank"
+                style="text-decoration: none; color: white"
+                >My <span style="color: #00e3e3">Solution</span></a
+              >
+              <br />
+              <a
+                href="/"
+                target="blank"
+                style="text-decoration: none; color: white"
+                >My <span style="color: #00e3e3">Blog</span></a
+              >
+              <br />
+              <a
+                href="/"
+                target="blank"
+                style="text-decoration: none; color: white"
+                >My <span style="color: #00e3e3">Code</span></a
+              >
+            </div>
+            <div
+              style="text-align: center; font-size: 20px; margin-bottom: 6px"
+            >
+              <a
+                href="/"
+                style="text-decoration: none; color: white"
+                target="blank"
+                >Cretaor : <span style="color: #00e3e3">Priyank Mishra</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="dashboard">
+        <h1 style="font-size: 40px">IEEE CIS Fraud Detection</h1>
+        {%if predictions is not none%}
+        <div id="results-header">
+          <div class="table-header" id="sno">SNo.</div>
+          <div class="table-header" id="transaction-id">TransactionID</div>
+          <div class="table-header" id="prediction">
+            Probability of Being Fraudulent
+          </div>
+        </div>
+        <div id="results">
+          <table>
+            <tbody>
+              {% for value in predictions.values%}
+              <tr class="table-row">
+                <td>{{loop.index}}</td>
+                <td class="table-cell">{{ value[0]|int }}</td>
+                <td class="table-cell">{{ value[1] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        {%else%}
+
+        <div id="size-overflow">
+          Input File must have a maximum of 500 Rows.
+        </div>
+
+        {%endif%}
+      </div>
+    </main>
+  </body>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+</html>

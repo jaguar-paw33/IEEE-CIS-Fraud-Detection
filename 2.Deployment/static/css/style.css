@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  background: rgb(76 161 175);
+  font-family: "Crimson Text", serif;
+  color: white;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+}
+
+#sidebar {
+  background-color: rgb(44 62 80);
+  height: 100%;
+  width: 400px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+#dashboard {
+  width: 100%;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+#about {
+  margin-bottom: 10px;
+  width: 350px;
+}
+
+#non-merged {
+  padding: 20px;
+}
+
+#merged {
+  padding: 20px;
+}
+
+#results-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 90%;
+  margin: 0 90px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  background-color: rgb(44 62 80);
+  border-radius: 3px;
+}
+
+#results {
+  text-align: center;
+  margin: 90px;
+  margin-top: 0;
+  width: 90%;
+  height: 80%;
+  overflow-y: scroll;
+}
+
+#results::-webkit-scrollbar {
+  display: none;
+}
+
+#results {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#results table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-header {
+  padding: 10px;
+  text-align: center;
+}
+
+#sno {
+  width: 100%;
+}
+
+#transaction-id {
+  width: 100%;
+  border-left: 6px solid rgb(76 161 175);
+  border-right: 6px solid rgb(76 161 175);
+}
+
+#prediction {
+  width: 100%;
+}
+
+.table-row {
+  background-color: #2c3e50;
+}
+
+.table-cell {
+  padding: 8px;
+  color: white;
+  border-radius: 2px;
+}
+
+input {
+  padding: 10px;
+  background: rgb(76 161 175);
+  border-radius: 3px;
+  margin: 10px;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 20px;
+  width: 50%;
+  align-self: center;
+  padding: 10px;
+  border: none;
+  border: 2px solid rgb(76 161 175);
+  background: transparent;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  box-shadow: 1px 1px 10px -1px cadetblue;
+}
+
+label {
+  margin-top: 20px;
+}
+
+#click-non-merged {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#click-merged {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+form {
+  transition: 5s;
+}
+
+#non-merged {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
+#merged {
+  margin-top: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
+#form-merged {
+  display: None;
+}
+
+#size-overflow {
+  padding: 50px 100px;
+  font-size: 30px;
+  background-color: rgb(167, 118, 118);
+  border-radius: 5px;
+  width: 60%;
+  margin: auto;
+  margin-top: 250px;
+}
